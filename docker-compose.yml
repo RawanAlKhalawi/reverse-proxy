@@ -1,0 +1,20 @@
+version: "3"
+services:
+
+  java1:
+    image: rawanalkhalawi/app1:latest
+    ports:
+      - "7770:8080"
+    container_name: app1
+  
+  java2:
+    build: ./app2/Java-testapp
+    ports:
+       - "8880:8080"
+    container_name: app2
+
+  nginx:
+    image: rawanalkhalawi/reverse-proxy:latest
+    ports:
+      - "80:80"
+    container_name: reverse-proxy
